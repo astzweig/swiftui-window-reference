@@ -14,18 +14,18 @@ import WindowReference
 
 @main
 struct YourApp: App {
-	var body: some Scene {
-		WindowGroup("Some Window Title") {
-			WindowReference(withWindowInitializer: self.initWindow(_:)) {
-				SomeOtherView()
-			}
-		}
-	}
+  var body: some Scene {
+    WindowGroup("Some Window Title") {
+      WindowReference(withWindowInitializer: self.initWindow(_:)) {
+        SomeOtherView()
+      }
+    }
+  }
 
-	func initWindow(window: NSWindow) {
-		window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-		window.standardWindowButton(.zoomButton)?.isHidden = true
-	}
+  func initWindow(window: NSWindow) {
+    window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+    window.standardWindowButton(.zoomButton)?.isHidden = true
+  }
 }
 ```
 
@@ -34,15 +34,15 @@ environment.
 
 ```swift
 struct SomeOtherView: View {
-	@Environment(\.window) var window: NSWindow?
+  @Environment(\.window) var window: NSWindow?
 
-	var body: some View {
-		if let window = self.window {
-			Text("This view is inside a window with title \(window.title)")
-		} else {
-			Text("No window reference found :(")
-		}
-	}
+  var body: some View {
+    if let window = self.window {
+      Text("This view is inside a window with title \(window.title)")
+    } else {
+      Text("No window reference found :(")
+    }
+  }
 }
 ```
 
@@ -68,18 +68,18 @@ dependencies for your package:
 
 ```swift
 let package = Package(
-	// name, platforms, products, etc.
-	dependencies: [
-		// other dependencies
-		.package(url: "https://github.com/astzweig/swiftui-window-reference", from: "1.0.0"),
-	],
-	targets: [
-		.executableTarget(name: "<command-line-tool>", dependencies: [
-			// other dependencies
-			.product(name: "WindowReference", package: "swiftui-window-reference"),
-		]),
-		// other targets
-	]
+  // name, platforms, products, etc.
+  dependencies: [
+    // other dependencies
+    .package(url: "https://github.com/astzweig/swiftui-window-reference", from: "1.0.0"),
+  ],
+  targets: [
+    .executableTarget(name: "<command-line-tool>", dependencies: [
+      // other dependencies
+      .product(name: "WindowReference", package: "swiftui-window-reference"),
+    ]),
+    // other targets
+  ]
 )
 ```
 

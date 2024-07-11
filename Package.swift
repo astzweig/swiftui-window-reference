@@ -8,14 +8,11 @@ let package = Package(
         .library(
             name: "WindowReference",
             targets: ["WindowReference"]),
-		.executable(
-			name: "WindowReferenceTestApp",
-			targets: ["WindowReferenceTestApp"])
     ],
     targets: [
         .target(name: "WindowReference"),
 		.executableTarget(
-			name: "WindowReferenceTestApp",
+			name: "TestApp",
 			dependencies: ["WindowReference"]
 		)
     ]

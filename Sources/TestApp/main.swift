@@ -53,7 +53,7 @@ struct MultiWindowView: View {
 	}
 }
 
-struct WindowReferenceTestApp: App {
+struct TestApp: App {
 	var body: some Scene {
 		Window("Single Window", id: "single-window") {
 			WindowReference(withWindowInitializer: self.initSingleWindow(_:)) {
@@ -68,7 +68,7 @@ struct WindowReferenceTestApp: App {
 		}
 
 		WindowGroup("Group Window", id: "group-window") {
-			WindowReference(andWindowInitializer: self.initGroupWindow(_:)) {
+			WindowReference(withWindowInitializer: self.initGroupWindow(_:)) {
 				MultiWindowView()
 			}
 		}
@@ -91,4 +91,4 @@ DispatchQueue.main.async {
 	app.activate(ignoringOtherApps: true)
 }
 
-WindowReferenceTestApp.main()
+TestApp.main()

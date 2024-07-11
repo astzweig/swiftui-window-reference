@@ -59,7 +59,7 @@ test `WindowReference`. Either execute it with
 $ swift run
 ```
 
-or select the `WindowReferenceTestApp` under `Product > Scheme` in Xcode.
+or select the `TestApp` under `Product > Scheme` in Xcode.
 
 ## Adding `WindowReference` as a Dependency
 
